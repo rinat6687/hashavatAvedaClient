@@ -1,0 +1,132 @@
+
+<head> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+</head>
+
+
+
+<!-- <div *ngIf="loginOK"> -->
+<table dir="rtl" class="blueTable">
+    <thead>
+    <tr>
+    <th>סטטוס</th>
+    <th>קטגוריה</th>
+    <th>איזור</th>
+    <th>תאריך</th>
+    <th>פעולות</th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody  *ngFor="let item of lst;" value="item">    
+    
+      <tr (click)="showDetails(item.selected=!item.selected)">
+        <td>{{item.statusName}}</td>
+        <td>{{item.categoryName}}</td>
+        <td>{{item.area}}</td>
+        <td>{{item.date | date}}</td>       
+        <td>
+          <a (click)="updateAd(item)">ערוך</a>&nbsp;&nbsp;
+          <a (click)="deleteAd(item)">הסר</a>
+        </td>
+        <td><i class="arrow down"></i></td>       
+      </tr>
+
+    <tr *ngIf="item.selected">
+      <td id="details" colspan="5">
+          <div>
+              <div class="window">
+                <div class="wintitle">תיאור פריט</div>
+                <div class="tedLine">
+                  <div class="bolb-right">קטגוריה:</div>
+                  <p>{{item.fatherName}}</p>
+                </div>
+                <div class="tedLine">
+                  <div class="bolb-right">תת קטגוריה:</div>
+                  <p>{{item.categoryName}}</p>
+                </div>               
+              </div>
+              
+              <div class="window" *ngIf="user">
+                <div class="wintitle">צור קשר</div>
+                <div class="tedLine">
+                  <div class="bolb-right">איש קשר:</div>
+                  <p>{{user.firstName}}</p>
+                </div>
+                <div class="tedLine">
+                    <div class="bolb-right">עיר:</div>
+                    <p>{{user.city}}</p>
+                </div>
+                <div class="tedLine">
+                    <div class="bolb-right">טלפון:</div>
+                    <p id="tel{{item.adKod}}" >{{user.Tel1}}{{user.Tel2}}</p>
+                </div>
+                <div>          
+                </div>
+                <div class="tedLine">                  
+                </div>  
+                
+              </div>
+              <div class="window">
+                  <div class="wintitle">תמונה</div>
+                    <img class="picture"  src="{{item.image}}"> 
+                  
+                </div>
+              
+              </div>
+      </td>
+    </tr>
+  
+    </tbody>
+ </table>
+<!-- </div>   -->
+ 
+<!-- <div class="details"  *ngIf="item.selected">value="item"
+<div class="window">
+<div class="wintitle">תיאור פריט</div>
+<div class="tedLine">
+  <div class="bolb-right">קטגוריה:</div>
+  <p>{{item.fatherName}}</p>
+</div>
+<div class="tedLine">
+  <div class="bolb-right">תת קטגוריה:</div>
+  <p>{{item.categoryName}}</p>
+</div>
+
+</div>
+
+<div class="window" *ngIf="user">
+<div class="wintitle">צור קשר</div>
+<div class="tedLine">
+  <div class="bolb-right">איש קשר:</div>
+  <p>{{user.firstName}}</p>
+</div>
+<div class="tedLine">
+    <div class="bolb-right">עיר:</div>
+    <p>{{user.city}}</p>
+</div>
+<div class="tedLine">
+    <div class="bolb-right">טלפון:</div>
+    <p id="tel{{item.adKod}}" >{{user.Tel1}}{{user.Tel2}}</p>
+</div>
+<div>          
+</div>
+<div class="tedLine">
+     <button mat-raised-button (click)="openDialog()">Pick one</button> 
+    <a (click)="openDialog(item.adKod)" style="width: 100%" class="bolb-right">שליחת דוא"ל למפרסם</a>
+    <div *ngIf='mailComp'><app-mail-comp ></app-mail-comp></div>
+</div>  
+
+</div>
+<div class="window">
+<div class="wintitle">תמונה</div>
+ <div>{{item.image}}</div>
+  <img src="C:\fakepath\ים.jpg"> 
+
+</div>
+
+</div>
+           -->
+      
+
+  
+

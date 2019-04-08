@@ -1,0 +1,198 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<form #myForm="ngForm" dir="rtl" [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+  <div class="contact_form">
+
+    <div class="mainTitle">
+      <img class="icon_form" src="assets/image/white-form-icon.png">
+      <h4>פרטי המודעה</h4>
+    </div>
+    <div class="teaching">מלאו את הפרטים לפרסום מודעתכם:</div>
+    <div class="fieldsArea">
+
+      <div class="contact_form_column">
+        <label>פרטים:</label>
+
+        <div class="text_field_row">
+          <!-- <label><small>*</small>סטטוס</label> [selected]="!newAd.status"    [selected]="newAd.status"-->
+          <mat-form-field>
+            <select matNativeControl formControlName="status" [ngClass]="{ 'is-invalid': submitted && f.status.errors }" placeholder="סטטוס"
+              required [(ngModel)]="indStatus" name="status" >
+              <option *ngFor="let item of statuses;let ind=index;" value="{{ind}}" [selected]="newAd.status==ind">
+            {{item}}
+              </option>
+              <!-- <option value="1" >אבידה</option>
+              <option value="0" >מציאה</option> -->
+
+
+            </select>    
+                                                  
+            <mat-error *ngIf="submitted && f.status.errors">
+              <strong *ngIf="f.status.errors.required">שדה חובה</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <app-category-comp *ngIf="!bbb" [parentForm]="parentForm" [newAd]="newAd" [submitted]="submitted"></app-category-comp>
+        <!-- (valueChange)="getCategoryCode($event)" -->
+        <div class="text_field_row">
+          <!-- <label><small>*</small>תאריך</label> -->
+          <mat-form-field style="width: 67%;">
+            <input formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" matInput required placeholder="תאריך"
+              [(ngModel)]="newAd.date" name="date" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="submitted && f.date.errors">
+              <strong *ngIf="f.date.errors.required">שדה חובה</strong>
+            </mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+
+        <div class="text_field_row">
+          <!-- <label><small>*</small>אזור</label> -->
+          <mat-form-field>
+            <select matNativeControl formControlName="areaes" [ngClass]="{ 'is-invalid': submitted && f.areaes.errors }" placeholder="איזור"
+              required [(ngModel)]="newAd.area" name="area">
+              <option></option>
+              <option *ngFor="let item of area" [selected]="newAd.area==item"> {{item}}</option>
+            </select>
+            <mat-error *ngIf="submitted && f.areaes.errors">
+              <strong *ngIf="f.areaes.errors.required">שדה חובה</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="contact_form_column">
+        <label>פרטי זהוי:</label>
+        <div class="text_field_row">
+          <!-- <label>חומר</label> -->
+          <mat-form-field>
+            <select matNativeControl formControlName="material" placeholder="חומר" [(ngModel)]="newAd.material" name="material">
+              <option></option>
+              <option *ngFor="let item of material"  [selected]="newAd.material==item"> {{item}}</option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="text_field_row">
+          <!-- <label>נמצא/אבד ב:</label> -->
+          <mat-form-field>
+            <select matNativeControl formControlName="area" placeholder="סוג אזור" [(ngModel)]="newAd.typeArea" name="typeArea">
+              <option></option>
+              <option *ngFor="let item of kindArea"  [selected]="newAd.typeArea==item"> {{item}}</option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div *ngIf="newAd.typeArea==kindArea[3]" class="text_field_row">
+          <!-- <label>תחבורה</label> -->
+          <mat-form-field>
+            <select matNativeControl formControlName="transportation" placeholder="סוג תחבורה" [(ngModel)]="newAd.transportation" name="transportation">
+              <option></option>
+              <option *ngFor="let item of transportation"  [selected]="newAd.transportation==item"> {{item}}</option>
+            </select>
+          </mat-form-field>
+
+        </div>
+        <div class="color_box">
+          <span>צבע</span>
+          <div class="color_select">
+
+            <a *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]" class="color{{i}}" id="color" (click)="activeColor(i)" [ngClass]="activeItemNumber == i ? 'active' : ''"
+              href="javascript:void(0)">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact_form_column">
+        <label>הוסף תמונה*</label>
+        <!-- <div class="text_field_row"> -->
+        <div style=" height: 50%;">
+
+          <img *ngIf="!bbb" [src]="newAd.image" class="addImage" (click)="fileInput.click()">
+          <img *ngIf="bbb"  src="{{newAd.image}}" class="addImage" (click)="fileInput.click()">
+        </div>
+        <!-- <div *ngIf="picture">לחץ על התמונה כדי לשנותה</div> -->
+        <br>
+        <input class="cancelImage" id="cancel" type="button" value="ביטול" (click)="cancel()">
+
+        <div class="notice" style=" margin-top: 10%;">
+          <a (click)="clear()">נקה שדות</a>
+        </div>
+        <div class="notice">*שדות חובה</div>
+        <div class="notice">*תמונה אחת בלבד</div>
+        <input #fileInput style="visibility: hidden;" type="file" (change)="handleFiles($event)" />
+
+        <!-- <div class="attached_pictures"> -->
+
+        <!-- <span><a href="#"  id="imageAdded" style="visibility: hidden;"> נוספו {{sachHacol}} תמונות</a></span>    -->
+
+        <!-- <div class="clearfix"></div> -->
+        <!--name="pic" accept="image/*"-->
+        <!-- </div>
+              <div class="inner_gallery">
+                <div class="product_gallery">
+                  <div id="fileList"></div>                       
+                </div> -->
+        <!-- <div class="small_pagination">
+                      <ul>
+                          <li><a *ngFor="let x of imageNum" value="x" (click)="shawImage(x)"> {{x}} </a></li>      
+                      </ul>
+                  </div> -->
+      </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="!bbb" class="contact_form">
+    <div class="mainTitle">
+      <img class="icon_form" src="assets/image/white-form-icon.png">
+      <h4>פרטי קשר</h4>
+    </div>
+
+    <!-- <div class="radio">
+        <input type="radio" name="gender"  value="new"> משתמש חדש
+       &nbsp; &nbsp;
+       <input type="radio" name="gender"   value="old"> משתמש קיים
+     </div> -->
+
+    <div dir="rtl" class="radioArea">
+      <div class="radio">
+        <input id="radio-2" name="radio" type="radio" (change)="radioSelected(1)" checked>
+        <label for="radio-2" class="radio-label">משתמש קיים </label>
+      </div>
+
+      <div class="radio">
+        <input id="radio-1" name="radio" type="radio" (change)="radioSelected(0)">
+        <label for="radio-1" class="radio-label">משתמש חדש </label>
+      </div>
+    </div>
+
+    <div *ngIf="loginSelected" id="login">
+      <app-login [loginDetails]="loginDetails" [parentForm]="parentForm" [submitted]="submitted">
+      </app-login>
+    </div>
+    <div *ngIf="userSelected" id="user">
+      <!-- [passwordToChaeck]="passwordToChaeck" (sendP)="sendPassword(event)"-->
+      <app-user [newUser]="newUser" [parentForm]="parentForm" [submitted]="submitted" [showTitel]="showTitel" [passwordToChaeck]="passwordToChaeck"></app-user>
+    </div>
+
+  </div>
+  <br>
+
+  <button  class="btn btn-primary" style="margin-right: 90%; width: 90px;" mat-raised-button>אישור</button>
+  <!-- <input type="submit" [disabled]="parentForm.is-invalid" value="sbmit" for="form1"> -->
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- <button style="margin-right: 70%" mat-raised-button (click)="addAd()">אישור</button> -->

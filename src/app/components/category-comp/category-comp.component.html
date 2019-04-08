@@ -1,0 +1,59 @@
+    
+ <div *ngIf="newAd" [formGroup]="parentForm" class="text_field_row">
+    <!-- <label ><small>*</small>קטגוריה</label> -->
+
+      <mat-form-field>     
+       <select  matNativeControl [formControlName]='"category"'  [ngClass]="{ 'is-invalid': submitted && f.category.errors }" required placeholder="קטגוריה"  [(ngModel)]="fatherCode" name="fatherCode" (change)="getSubCategoryList(fatherCode)" >
+         <option></option>
+         <option  *ngFor="let item of categoryList" [value]="item.categoryKod"> {{item.categoryName}}</option>
+       </select>
+          
+       <mat-error  *ngIf="submitted && f.category.errors" class="invalid-feedback">
+          <strong *ngIf="f.category.errors.required" >שדה חובה</strong>
+       </mat-error>   
+      </mat-form-field> 
+    
+ </div>
+
+ <!-- [selected]="newAd.category==item.categoryKod"  [selected]="item.categoryName==newAd.fatherName" -->
+ <div *ngIf="newAd" [formGroup]="parentForm" class="text_field_row">
+   <div *ngIf='subCategoryList'>
+    <!-- <label ><small>*</small>תת קטגוריה</label> -->
+    
+      <mat-form-field>    
+        <select  matNativeControl [formControlName]='"subCategory"'  [ngClass]="{ 'is-invalid': submitted && f.subCategory.errors }" required placeholder="תת קטגוריה" [(ngModel)]="newAd.category" name="selectedCategory" (change)='sendChildCode()'>           
+          <option></option>
+          <option  *ngFor="let item of subCategoryList" [ngValue]="item.categoryKod"  > {{item.categoryName}}</option>
+        </select>       
+          <mat-error  *ngIf="submitted && f.subCategory.errors" class="invalid-feedback">
+          <strong *ngIf="f.subCategory.errors.required" >שדה חובה</strong>
+          </mat-error>       
+      </mat-form-field>
+  
+ </div>
+</div>
+  <!-- search component[formGroup]="parentForm"[formControlName]='"subCategory"'  [ngClass]="{ 'is-invalid': submitted && f.subCategory.errors }" [formGroup]="parentForm"[formControlName]='"category"' [ngClass]="{ 'is-invalid': submitted && f.category.errors }"-->
+<div *ngIf="!newAd"  class="searchCategoryArea">
+  <mat-form-field class="searchCategory">
+    <mat-select    required placeholder="קטגוריה"  [(ngModel)]="fatherCode" name="fatherCode" (selectionChange)="getSubCategoryList(fatherCode)" >
+        <mat-option></mat-option>
+        <mat-option  *ngFor="let item of categoryList" [value]="item.categoryKod"> {{item.categoryName}}</mat-option>
+    </mat-select> 
+    <!-- <mat-error  *ngIf="submitted && f.category.errors" class="invalid-feedback">
+      <strong *ngIf="f.category.errors.required" >שדה חובה</strong>
+   </mat-error>   -->
+  </mat-form-field>
+</div>
+
+  <div *ngIf="!newAd"  class="searchCategoryArea">  
+  <mat-form-field  class="searchCategory" >    
+    <mat-select   required placeholder="תת קטגוריה" [(ngModel)]="selectedCategory" name="selectedCategory" (selectionChange)='sendChildCode()'>           
+        <mat-option></mat-option>
+        <mat-option  *ngFor="let item of subCategoryList" [value]="item.categoryKod"  > {{item.categoryName}}</mat-option>
+     </mat-select>
+      <!-- <mat-error  *ngIf="submitted && f.subCategory.errors" class="invalid-feedback">
+      <strong *ngIf="f.subCategory.errors.required" >שדה חובה</strong>
+   </mat-error>  -->
+  </mat-form-field> 
+    </div>
+<!-- <div *ngIf='subCategoryList'> --><!-- </div> id="sub" ng-disabled="sub==true" -->

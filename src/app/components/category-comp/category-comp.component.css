@@ -1,0 +1,26 @@
+
+.text_field_row label {
+	text-align: right;
+	width: 30%;
+	margin-left: 5%;
+	line-height:normal;
+	float:none;
+	max-width:100%;
+	padding-bottom:7px;
+}	
+input[type="text"] {
+	height:50px;
+	font-size:16px;
+}
+label{
+	display: inline-block;
+}
+.searchCategory{	
+	float: right;
+	margin-right: 3%;
+   
+}
+mat-form-field{
+	width:200px;
+
+}

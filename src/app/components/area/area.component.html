@@ -1,0 +1,123 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  </head> 
+  
+  <div *ngIf="checkIfUserLogin" class="user" >שלום {{userName}}  |<img class="icon_form"  src="assets/image/logOff.jpg"><a (click)="logOut()"> התנתק </a> </div>
+  <div *ngIf="!checkIfUserLogin" style="margin-top: 7%;font-size: 20px;width: 40%" class="user">הכנס שם משתמש וסיסמא:</div>
+<div style="margin-top: 10%" *ngIf="!checkIfUserLogin">
+  <app-login  [loginDetails]="myLogin" [parentForm]="parentForm" [submitted]="submitted">
+
+      <button mat-raised-button color="primary"(click)="getUserList()">אישור</button>
+    </app-login>
+</div>
+  
+<form *ngIf="checkIfUserLogin"  dir="rtl">
+   
+  <div class="mainTitle">
+   <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li  mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    [ngClass]="link.index == 2 ? 'upDate' : ''"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> 
+</div> 
+  <div class="contact_form">
+    <router-outlet></router-outlet>
+<!-- <app-login (login)="func($event)" ></app-login> -->
+<!-- <app-show-items  [advertisements]="adver" *ngIf="show" ></app-show-items> -->
+  </div>  
+ </form>
+
+ <app-update-area [hidden]="true" [lst]="lst" ></app-update-area>
+
+
+
+  <!-- <form  dir="rtl">
+  <div class="mainTitle">
+   <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> 
+</div> 
+  <div class="contact_form">
+    <router-outlet></router-outlet> --> 
+<!-- <app-login (login)="func($event)" ></app-login> -->
+<!-- <app-show-items  [advertisements]="adver" *ngIf="show" ></app-show-items> -->
+
+  <!-- </div>  
+</form> -->
+
+
+<!-- <form  dir="rtl">
+  <div class="mainTitle">
+   <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> 
+</div> 
+  <div class="contact_form">
+    <router-outlet></router-outlet> -->
+<!-- <app-login (login)="func($event)" ></app-login> -->
+<!-- <app-show-items  [advertisements]="adver" *ngIf="show" ></app-show-items> -->
+<!-- 
+  </div>  
+</form> -->
+
+
+<!-- <form  dir="rtl">
+  <div class="mainTitle">
+   <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> <nav dir="rtl" mat-tab-nav-bar mat-align-tabs="end" class="menu">
+    <li mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+   </li>
+   </nav> 
+</div> 
+  <div class="contact_form">
+    <router-outlet></router-outlet> -->
+<!-- <app-login (login)="func($event)" ></app-login> -->
+<!-- <app-show-items  [advertisements]="adver" *ngIf="show" ></app-show-items> -->
+
+  <!-- </div>  
+</form> -->

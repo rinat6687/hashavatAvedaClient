@@ -1,0 +1,103 @@
+form{
+	height: 100%;
+	margin-top: 5%;
+
+}
+
+  label {
+    display: inline-block;
+  }​
+
+  table {
+    margin: 0 auto;
+}
+
+.contact_form {
+	/* border: 1px solid black; */
+	/* margin: 0% auto; */
+	width:80%;
+	margin-right: 10%;
+	height: 250px;
+	/* background-color: #9c2121; */
+
+}
+
+.contact_form_column { padding-right:0;
+}
+.contact_form_column:nth-child(1) {
+	float: right;
+	margin-right: 10%;
+	width: 40%;
+	height:100%;
+	border-left:solid #d3d2d2;
+
+
+}
+.contact_form_column:nth-child(2) {
+	float: right;
+	height:100%;
+	width: 40%;	
+
+}
+
+.text_field_row label {
+	text-align: right;
+	width: 30%;
+	margin-left: 5%;
+	line-height:normal;
+	float:none;
+	max-width:100%;
+	padding-bottom:7px;
+}
+
+span{
+	font-size:25px;
+  
+}
+img{
+	width: 50px;
+	height: 50px;
+	margin-right: 80%;
+}
+.mainTitle{
+	height:35px;
+	background-color: #14a1db;
+}
+
+.fieldRequired{
+	text-align: left;
+	color:red;
+	width: 200px;
+	margin-right: 15%;
+
+}
+mat-form-field{
+	width:200px;
+	height: 60px;
+
+}
+.notice{
+	width: 98%;
+	height: 50%;
+	text-align: left;
+	color: red;
+	/* margin-right: 5%; */
+	font-size: 12px;
+}
+.radioButton{
+	margin-top: 4%;
+	text-align: right;
+	margin-right: 10%;
+}
+  
+   /* label{
+    margin:0; 
+    padding:0; 
+    border:0; 
+    outline:0; 
+    vertical-align:baseline;
+  }
+  .text_field_row label small {
+    color:#14a1db;
+    font-size:14px;
+  } */

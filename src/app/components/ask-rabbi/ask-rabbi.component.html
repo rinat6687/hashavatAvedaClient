@@ -1,0 +1,46 @@
+
+<head> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+</head>
+
+<h1 dir="rtl" mat-dialog-title>שאל את הרב</h1>
+<div mat-dialog-content>
+   <!-- <div class="container" style="width: 400px;height:350px ;margin-top: 18%; background-color: plum;float: right;" > -->
+ 
+    <div class="form-group">
+        <div class="col-sm-10">
+          <input class="form-control"  type="text"placeholder=" הכנס שם"   [(ngModel)]="mail.name" name="name">
+        </div><label class="control-label col-sm-2" >:שם</label>
+    </div>
+    <br><br>
+    <div class="form-group">
+        <div class="col-sm-10">           
+          <input class="form-control"  type="email"placeholder="הכנס כתובת מייל" required [(ngModel)]="mail.email" name="mail">
+       </div><label class="control-label col-sm-2" for="pwd">:מייל</label>
+    </div>
+    <br><br>
+    <div class="form-group">
+        <div class="col-sm-10">           
+          <input class="form-control"  type="tel"placeholder="הכנס טלפון"  [(ngModel)]="mail.tel" name="tel">
+       </div><label class="control-label col-sm-2" for="pwd">:טלפון</label>
+    </div>
+    <br><br>
+    <div class="form-group">
+        <div class="col-sm-10">        
+             <!-- placeholder="כתוב שאלתך" -->
+          <input style="height: 200px;text-align: right ;" class="form-control"  type="text"  required [(ngModel)]="mail.askRabbi" name="askRabbi">
+       </div><label class="control-label col-sm-2" for="pwd">:השאלה</label>
+    </div>
+         
+
+  
+<!-- </div> -->
+</div> 
+  <div mat-dialog-actions>
+    <h5  dir="rtl" mat-dialog-title> בלחיצה על "אישור" ישלח ישלח מייל לרב האתר ותענה במייל חוזר בהקדם</h5>
+
+    <button class="close" (click)="onNoClick()"></button>
+      <button mat-raised-button color="primary"(click)="sendEmail()">אישור</button>
+      <button mat-button (click)="onNoClick()">ביטול</button>
+  </div>
+

@@ -1,0 +1,125 @@
+
+
+
+
+   /* table from tr and td */
+
+   table.blueTable {
+     margin-top: 5%;
+    /* border: 1px solid #1C6EA4; */
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  table.blueTable td, table.blueTable th {
+    padding: 3px 2px;
+    height: 40px;
+  }
+  table.blueTable tbody td {
+    font-size: 15px;
+  }
+  table.blueTable tbody tr:hover {
+    background-color: rgb(223, 223, 223);
+  }
+  table.blueTable thead {
+    background: #3A2EC6;
+    background: -moz-linear-gradient(top, #cececf 0%, #999999 66%, rgb(88, 88, 88) 100%);
+    background: -webkit-linear-gradient(top, #cececf 0%, #999999 66%, rgb(88, 88, 88) 100%);
+    background: linear-gradient(to bottom,  #cececf 0%, #999999 66%, rgb(88, 88, 88) 100%);
+    border-bottom: 2px solid #444444;
+  }
+  table.blueTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  table.blueTable tfoot td {
+    font-size: 14px;
+  }
+  table.blueTable tfoot .links {
+    text-align: right;
+  }
+  table.blueTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+
+
+  /* details css */
+
+  #details {
+    background-color: rgb(248, 246, 246);
+    height: 140px;
+  
+  }
+  img{
+    width: 100px;
+    height: 70px;
+    margin-right: 20%
+  }
+  .window { padding-right:0;margin-right: 1%;
+  }
+  .window:nth-child(1) {
+    float:right;
+    text-align: right;
+    width:33%;
+    height:105px;
+    border-left: 1px solid rgb(68, 88, 201);
+
+  }
+  .window:nth-child(2) {
+    float:right;
+    text-align: right;
+    width: 33%;  
+    border-left: 1px solid rgb(68, 88, 201);
+  }
+  .window:nth-child(3) {
+    float: right;
+    width: 30%;
+    height:50%;
+  }
+  .wintitle{
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+  }
+ 
+  .bolb-right{
+    float: right;
+    width: 50%;
+
+  }
+  p{
+    float: none;    
+    width: 50%;
+    margin-right: 30%;
+    margin-block-start: 0%;
+
+  }
+
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  i {
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+    }
+  
+  
+
+
+
+
+
+
+
+ 

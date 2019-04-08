@@ -1,0 +1,104 @@
+
+
+<table dir="rtl" class="blueTable">
+    <thead>
+    <tr>
+    <th>סטטוס</th>
+    <th>קטגוריה</th>
+    <th>איזור</th>
+    <th>תאריך</th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of advertisements;"  value="item">
+      
+      <tr *ngIf="statusChange==false || item.status!=false" [ngClass]="item.selected ? 'active' : ''" (click)="showDetails(item)">
+        <td>{{item.statusName}}</td>
+        <td>{{item.categoryName}}</td>
+        <td>{{item.area}}</td>
+        <td>{{item.newDate | date}}</td>
+        <td><i class="arrow down"></i></td>
+        
+      </tr>
+
+    <tr *ngIf="item.selected">
+      <td id="details"  colspan="4">
+          <div >
+              <div class="window">
+                <div class="wintitle">תיאור פריט</div>
+                <div class="tedLine">
+                  <div class="bolb-right">קטגוריה:</div>
+                  <p>{{item.fatherName}}</p>
+                </div>
+                <div class="tedLine">
+                  <div class="bolb-right">תת קטגוריה:</div>
+                  <p>{{item.categoryName}}</p>
+                </div>
+               
+              </div>
+              
+              <div class="window" *ngIf="user[item.adKod]">
+                <div class="wintitle">צור קשר</div>
+                <div class="tedLine">
+                  <div class="bolb-right">איש קשר:</div>
+                  <p>{{user[item.adKod].firstName}}</p>
+                </div>
+                <div class="tedLine">
+                    <div class="bolb-right">עיר:</div>
+                    <p>{{user[item.adKod].city}}</p>
+                </div>
+                <div class="tedLine">
+                    <div class="bolb-right">טלפון:</div>
+                    <p id="tel{{item.adKod}}" >{{user[item.adKod].Tel1}}{{user[item.adKod].Tel2}}</p>
+                </div>
+                <div>          
+                </div>
+                <div class="tedLine">
+                    <a (click)="openDialog(item.adKod)" style="width: 100%" class="bolb-right">שליחת דוא"ל למפרסם</a>
+                </div>                 
+              </div>
+              <div class="window">
+                <div class="wintitle">תמונה</div>
+                  <img class="picture"  src="{{item.image}}"> 
+                
+              </div>
+              
+               <!-- <div class="window">
+                  <div class="wintitle">תמונה</div>
+                 <a class="lightbox" href="#item.image">
+                  <img class="picture"  src="{{item.image}}"> 
+                
+                </a> 
+                <div class="lightbox-target" id="dog">
+                  <img class="picture"  src="{{item.image}}"> 
+                
+                  <a class="lightbox-close" href="#"></a>
+                </div>
+              </div> -->
+               
+              
+        </div>
+      </td>
+    </tr>
+  
+    </tbody>
+ </table>
+
+
+ <!-- <modal id="imgModel">
+  <div class="modal">
+      <div class="modal-body">
+          <h1>A Custom Modal!</h1>
+          <img  >
+          <button (click)="closeModal('custom-modal-1');">Close</button>
+      </div>
+  </div>
+  <div class="modal-background"></div>
+</modal> -->
+
+
+
+   
+
+
+             

@@ -1,0 +1,134 @@
+<!-- <div [class]="class"> -->
+<!-- <form  dir="rtl" [formGroup]="parentForm" (ngSubmit)="onSubmit()">   -->
+<!-- <div  class="mainTitle" *ngIf="showTitel">
+                <span>פרטי משתמש:</span>
+            </div>  -->
+<div style="text-align: right;margin-right: 20%; font-size: 20px; width: 60%;">אנא מלאו כתובת דוא"ל פעילה ובשימוש. </div>
+<div style="text-align: right;width: 60%;margin-right: 20%;">שימו לב! כתובת הדוא"ל תשמש כשם המשתמש שלכם באתר. </div>
+
+<form #myForm="ngForm" class="contact_form" *ngIf="newUser">
+
+  <div class="contact_form_column">
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>שם פרטי:</label> -->
+      <mat-form-field>
+        <input type="text" [formControlName]="'firstName'" matInput placeholder="שם פרטי" [(ngModel)]="newUser.firstName" name="fName"
+          required>
+         <mat-error *ngIf="submitted && f.firstName.errors">
+          <strong *ngIf="f.firstName.errors.required">שדה חובה</strong>
+        </mat-error>
+      </mat-form-field>
+      
+    </div>
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>שם משפחה:</label> -->
+      <mat-form-field>
+        <input type="text" [formControlName]="'lastName'" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" matInput placeholder="שם משפחה"
+          [(ngModel)]="newUser.lastName" name="lName" required>
+        <mat-error *ngIf="submitted && f.lastName.errors">
+          <strong *ngIf="f.lastName.errors.required">שדה חובה</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>עיר:</label> -->
+      <mat-form-field>
+        <input type="text" [formControlName]="'city'" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" matInput placeholder="עיר"
+          [(ngModel)]="newUser.city" name="city" required>
+        <mat-error *ngIf="submitted && f.city.errors">
+          <strong *ngIf="f.city.errors.required">שדה חובה</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>טלפון ראשי</label> -->
+      <mat-form-field>
+        <input type="text" [formControlName]="'tel1'" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$" [ngClass]="{ 'is-invalid': submitted && f.tel1.errors }"
+          matInput placeholder="טלפון ראשי" [(ngModel)]="newUser.Tel1" name="tel1" required>
+        <mat-error *ngIf="submitted && f.tel1.errors">
+          <strong *ngIf="f.tel1.errors.required">שדה חובה</strong>
+          <strong *ngIf="f.tel1.errors.pattern">יש להזין מספר טלפון תקין</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+     <!-- [formGroup]="parentForm" -->
+<!-- <div class="radioButton">
+  <input type="checkbox"  [(ngModel)]="newUser.cheackboxEmail" name="cheackboxEmail">
+    <span style="font-size: 15px"> מאשר קבלת דוא"ל </span>
+    <br>
+  <input type="checkbox" [(ngModel)]="newUser.cheackboxRegulations" name="cheackboxRegulations"required >
+    <span style="font-size: 15px"> קראתי ומאשר/ת את תקנון האתר </span>
+      <mat-error style="margin-right: 55%" *ngIf="submitted && f.checkbox2.errors">
+          <strong  *ngIf="f.checkbox2.errors.required">שדה חובה</strong>
+      </mat-error>
+
+</div> -->
+
+  </div>
+  <div class="contact_form_column">
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label>טלפון 2</label> -->
+      <mat-form-field>
+        <input type="text" [formControlName]="'tel2'" [ngClass]="{ 'is-invalid': submitted && f.tel2.errors }" matInput placeholder="טלפון נוסף"
+          [(ngModel)]="newUser.Tel2" name="tel2">
+        <mat-error *ngIf="submitted && f.tel2.errors">
+          <strong *ngIf="f.tel2.errors.pattern">יש להזין מספר טלפון תקין</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>דוא"ל</label> -->
+      <mat-form-field hintLabel="(הכתובת נותרת חסויה ואינה מוצגת באתר)">
+        <input type="text" [formControlName]="'email'" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" matInput placeholder="דוא&quot;ל"
+          [(ngModel)]="newUser.mail" name="mail" required>
+        <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <strong *ngIf="f.email.errors.required">שדה חובה</strong>
+          <strong *ngIf="f.email.errors.email">יש להזין דוא"ל תקין</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- <div style="font-size: 10px">(הכתובת נותרת חסויה ואינה מוצגת באתר)</div> -->
+
+
+    </div>
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>סיסמא</label> -->
+      <mat-form-field>
+        <input type="password" [formControlName]="'password'" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" matInput
+          placeholder="סיסמה" [(ngModel)]="newUser.password" name="password" required>
+        <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <strong *ngIf="f.password.errors.required">שדה חובה</strong>
+          <strong *ngIf="f.password.errors.minlength">סיסמא חייבת להכיל לפחות 6 תווים</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="text_field_row" [formGroup]="parentForm">
+      <!-- <label><small>*</small>אימות סיסמה</label> (blur)="sendPassword($event)"-->
+      <mat-form-field>
+        <input type="password" [formControlName]="'password2'"  [ngClass]="{ 'is-invalid': submitted && f.password2.errors }"
+          matInput placeholder="אימות סיסמה" [(ngModel)]="passwordToChaeck" name="passwordToChaeck" required>
+        <mat-error *ngIf="submitted && f.password2.errors">
+          <strong *ngIf="f.password2.errors.required">שדה חובה</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+  </div>
+
+</form>
+
+<div class="notice" style=" margin-top: 3%;">
+  <a (click)="clear()">נקה שדות</a>
+</div>
+<div class="notice">*שדות חובה</div>
+<br>
+<div *ngIf="aaa" class="form-group">
+    <button class="btn btn-primary" (click)="saveUser()" style="margin-right: 70%" mat-raised-button>אישור</button>
+    </div>
+
+<!-- </form> -->
+<!-- </div> -->

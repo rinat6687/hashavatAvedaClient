@@ -1,0 +1,49 @@
+
+.category{
+    float: right;
+    width: 50%;
+}
+.search{
+    margin-top: 5%;
+    border-radius: 15px;
+    background-color: #EEEEEE;
+    height: 120px;
+}
+.searchItem{	
+	float: right;
+	margin-right: 3%;
+}
+.buttonSearch{    
+    text-align: center;
+    margin-left: 2%; 
+    /* width: 80px; */
+    padding: 4px 30px;
+    margin-top: 5px;
+    float: left;
+}
+.btn{
+    margin-left: 2%; 
+    height: 38%;  
+    margin-top: 5px;
+    float: left;
+}
+.icon_form{
+    width: 25px;
+    height: 24px;
+	/* margin-right: 1%;  */
+}
+.showSigns{
+    border:solid;
+    border-block-start-color: red;
+    border-block-end-color: red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    text-align: right;
+}
+/* .btn.add{
+ background-color: chartreuse;
+}
+.btn.remove{
+    background-color: rgb(241, 16, 35);
+
+} */

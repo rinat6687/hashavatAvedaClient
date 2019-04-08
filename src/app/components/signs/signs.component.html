@@ -1,0 +1,145 @@
+
+
+<head> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+      </head>
+      <h1 dir="rtl" >רגע לפני החיפוש...</h1>
+      <h4 dir="rtl" mat-dialog-title>  אם תתן לנו סימנים סיכוייך למצוא יגדלו...</h4>
+
+      <div mat-dialog-content>
+         <!-- <div class="container" style="width: 400px;height:350px ;margin-top: 18%; background-color: plum;float: right;" > -->
+       
+          <div class="form-group">
+                <div class="col-sm-10">           
+                <!-- <p>mail to {{data.mail}}</p> -->
+                <mat-form-field  class="signsItem">
+                        <mat-select matNativeControl [(ngModel)]="data.material" name="material">
+                            <mat-option  *ngFor="let item of material"[value]="item"> {{item}}</mat-option>
+                          </mat-select>
+                  </mat-form-field>
+              </div>
+               <label class="control-label col-sm-2" >:חומר</label>
+          </div>
+          <br><br>
+          <div class="form-group">
+              <div class="col-sm-10">   
+                <mat-form-field class="signsItem">
+                        <mat-select matNativeControl  [(ngModel)]="data.kindArea" name="kindArea">
+                            <mat-option></mat-option>                                     
+                            <mat-option  *ngFor="let item of kindArea" [value]="item"> {{item}}</mat-option>
+                          </mat-select>
+                </mat-form-field>        
+             </div><label class="control-label col-sm-2" for="pwd">:סוג אזור</label>
+          </div>
+          <br><br>
+          <div class="form-group" *ngIf="data.kindArea==kindArea[3]">
+              <div class="col-sm-10">                    
+                <mat-form-field class="signsItem">
+                    <mat-select matNativeControl [(ngModel)]="data.transportation" name="transportation">
+                        <mat-option></mat-option>                                     
+                        <mat-option  *ngFor="let item of transportation" [value]="item"> {{item}}</mat-option>
+                      </mat-select>
+              </mat-form-field>          
+             </div><label class="control-label col-sm-2" for="pwd">:תחבורה</label>
+          </div>          
+          <label class="control-label col-sm-2" for="pwd">:צבע</label>
+          <br><br>
+          <div class="form-group">
+              <div class="col-sm-10" style="float: right;"> 
+                    <div class="color_box">         
+                      <div class="color_select">                          
+                          <a *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]"
+                              class="color{{i}}"                        
+                              (click)="activeColor(i)" 
+                              [ngClass]="activeItemNumber == i ? 'active' : ''"
+                              href="javascript:void(0)"    
+                             >
+                          </a>                                       
+                    </div>             
+                  </div>          
+             </div>
+          </div>
+               
+    
+        
+      <!-- </div> -->
+     </div> 
+     <br>
+        <div mat-dialog-actions>
+          <!-- <button class="close" (click)="onNoClick()"></button> -->
+            <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+            <!-- <button mat-raised-button color="primary">אישור</button> -->
+            <button mat-button (click)="onNoClick()">ביטול</button>
+        </div>
+    
+      
+    
+     
+        
+      
+        <!-- <form dir="rtl">
+         <h1 mat-dialog-title>Hi </h1>
+         <div mat-dialog-content style="background-color: salmon">
+           <p>What's your favorite animal?</p>
+           <mat-form-field>
+              <input class="form-control"  type="text"placeholder="הכנס שם" required  [(ngModel)]="mail.name" name="name">
+           </mat-form-field>
+         </div>
+         <div mat-dialog-actions>
+           <button mat-button (click)="onNoClick()">No Thanks</button>
+           <button mat-button cdkFocusInitial>Ok</button>
+         </div>
+        </form> -->
+<!-- <h1 dir="rtl" mat-dialog-title> רגע לפני החיפוש.... אם תתן לנו סימנים סיכוייך למצוא יגדלו... </h1>
+<div class="signsFrame" mat-dialog-content>
+<div class="contact_form_column" >
+    <label> תיאור המציאה/האבדה</label>
+     <div class="text_field_row">
+       <label>חומר</label>
+         <mat-form-field>
+               <select matNativeControl placeholder="חומר"  [(ngModel)]="newAd.material" name="material">
+                   <option  *ngFor="let item of material"> {{item}}</option>
+                 </select>
+         </mat-form-field>
+     </div> 
+     <div class="text_field_row">
+         <label>נמצא/אבד ב:</label>
+           <mat-form-field>
+                 <select matNativeControl placeholder="בחר מהרשימה" [(ngModel)]="newAd.typeArea" name="typeArea">
+                     <option></option>                                     
+                     <option  *ngFor="let item of kindArea" > {{item}}</option>
+                   </select>
+           </mat-form-field>
+       </div> 
+       <div *ngIf="newAd.typeArea==kindArea[3]" class="text_field_row">
+            <label>תחבורה</label>
+              <mat-form-field>
+                    <select matNativeControl placeholder="בחר מהרשימה" [(ngModel)]="newAd.transportation" name="transportation">
+                        <option></option>                                     
+                        <option  *ngFor="let item of transportation" > {{item}}</option>
+                      </select>
+              </mat-form-field>
+          </div> 
+ <div class="color_box">         
+   <span>צבע</span>
+         <div class="color_select">
+             
+             <a *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]"
+                 class="color{{i}}"                        
+                 (click)="activeColor(i)" 
+                 [ngClass]="activeItemNumber == i ? 'active' : ''"
+                 href="javascript:void(0)"    
+                >
+             </a>                                       
+       </div>             
+     </div>
+     
+     <button (click)="showNewAd()"></button> 
+     
+ </div> 
+ </div>
+ <div mat-dialog-actions>
+        <button class="close" (click)="onNoClick()"></button>
+          <button mat-raised-button color="primary"(click)="sendEmail()">אישור</button>
+          <button mat-button (click)="onNoClick()">ביטול</button>
+      </div> -->

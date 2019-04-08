@@ -1,0 +1,138 @@
+
+  label {
+    display: inline-block;
+  }​
+
+  table {
+    margin: 0 auto;
+}
+.newAd{
+  /* background-color:; */
+}
+h3{
+	width: 100%;
+	height: 30px;
+  
+  background-color: rgb(79, 123, 219);
+}
+.contact_form {
+	margin-right: 20%;
+	width: 80%;
+	border: 2px solid gold;
+	height: 300px;
+
+}
+/* .contact_form {
+	padding: 33px 0 0 0;
+} */
+.contact_form_column {
+	padding-right:20px;
+  height: 300px;
+}
+/* .contact_form_column { padding-bottom:30px}
+.contact_form_column:nth-child(1) {
+	width:50%;	
+}
+.contact_form_column:nth-child(2) { width:50%}
+.contact_form_column:nth-child(3) {
+	float:none;
+	width:100%;
+	clear:both;
+	padding-right:0;
+} */
+.contact_form_column { padding-right:0
+}
+.contact_form_column:nth-child(1) {
+	float:right;
+	width: 33.33333333333333%;
+  height:100%;
+
+}
+.contact_form_column:nth-child(2) {
+	float:none;
+	text-align: right;
+	width: 33.33333333333333%;
+
+	margin-right: 50%;
+	height:100%;
+
+}
+.contact_form_column:nth-child(3) {
+	float:none;
+	width: 33.33333333333333%;
+	clear:both;
+	border: 1px solid rgb(68, 88, 201);
+	height:100%;
+  
+}
+.color_box span {
+  float: none;
+  margin-left: 80%;
+}
+.color_box .color_select {
+  margin-right: 30%;
+}
+.color_select {
+	position:relative;
+	width: 70%;
+}
+.color_select  .small_close { bottom:17px; top:inherit}
+.color_select a {
+	display:block;
+
+	width:20px;
+	height:20px;
+	border:3px solid #fff;
+	float:right;
+	margin:0 0 1px 1px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+.color_select a.active, 
+.color_select a:hover {
+	border:3px solid rgba(20,161,219,1);
+}
+.color_select a.color1 { background:red}
+.color_select a.color2 { background:green}
+.color_select a.color3 { background:lightgreen}
+.color_select a.color4 { background:blue}
+.color_select a.color5 { background:lightblue}
+.color_select a.color6 { background:yellow}
+.color_select a.color7 { background:#7411a1}
+.color_select a.color8 { background:#f49ac1}
+.color_select a.color9 { background:fuchsia}
+.color_select a.color10 { background:orange}
+.color_select a.color11 { background:turquoise}
+.color_select a.color12 { background:brown}
+.color_select a.color13 { background:grey}
+.color_select a.color14 { background:gold}
+.color_select a.color15 { background:silver}
+.color_select a.color16 { background:white}
+.color_select a.color17 { background:black}
+
+.text_field_row label {
+	text-align: right;
+	width: 30%;
+	margin-left: 5%;
+	line-height:normal;
+	float:none;
+	max-width:100%;
+	padding-bottom:7px;
+}
+input[type="text"] {
+	height:50px;
+	font-size:16px;
+}
+.signsFrame{
+	width: 40%;
+	background-color: #f49ac1;
+}
+.signsItem{
+	text-align: right;
+	float: right;
+	margin-right: 10%;
+	width: 200px;
+}
+label{
+}

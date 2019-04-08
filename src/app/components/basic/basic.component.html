@@ -1,0 +1,70 @@
+
+<head> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+  </head>
+<!-- [formGroup]="parentForm" -->
+  <form  dir="rtl"  (ngSubmit)="onSubmit()">
+  <div class="search">
+    <div class="category"> 
+      <!-- [parentForm]="parentForm" [submitted]="submitted"-->
+      <app-category-comp ></app-category-comp>
+    </div>
+
+    <mat-form-field class="searchItem">
+      <mat-select placeholder="אזור" [(ngModel)]="selectedArea" name="area">
+        <mat-option *ngFor="let item of area" [value]="item">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="searchItem" style="width: 20%;" > 
+        <input  matInput placeholder="תאריך" [(ngModel)]="d" name="d" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>         
+        <mat-datepicker #picker></mat-datepicker>        
+     </mat-form-field>
+
+
+<!-- <img src="assets/image/לוח שעם.png" style="width: ;" alt=""> -->
+     <mat-form-field style="width: 500px;" class="searchItem">
+        <!-- <textarea matInput placeholder="טקסט חופשי" #freeText id="freeText" [(ngModel)]="free" name="freeTxt" (keyup)="searchTxt()" ></textarea> -->
+        <textarea matInput placeholder="טקסט חופשי" #freeText id="freeText"  name="freeTxt"  (keyup)="onKey($event)"></textarea>
+     </mat-form-field>
+
+    <button (click)="clicked=!clicked" mat-stroked-button style="margin-left:2%;height:38%;margin-top: 5px;float: left;" color="primary" > 
+  
+        {{clicked ? 'הצג הכל' : 'הצג מציאות בלבד'}}
+        <!-- [ngClass]="{'btn-add': !clicked, 'btn-remove': clicked}" -->
+        <!-- <i class="fa" [ngClass]="{'fa-plus-circle': !clicked, 'fa-minus-circle': clicked}"></i> -->
+    </button>
+     <button (click)="openDialog()"style="text-align: center;" mat-raised-button color="primary" class="buttonSearch">חפש <img class="icon_form" src="assets/image/search1.png"></button>
+     <!-- <button style="text-align: center;" mat-raised-button color="primary" class="buttonSearch">חפש <img class="icon_form" src="assets/image/search1.png"></button> -->
+
+  </div>
+
+
+</form>
+<br/>
+<br/>
+<div *ngIf="ifData" class="showSigns">
+  <span style="color: red">:הערה</span>
+  <span>מודעות אלו סוננו עפ"י בקשתך:</span> &nbsp;&nbsp;
+  <span *ngIf="material"> חומר {{material}} </span> &nbsp;&nbsp;
+  <span *ngIf="kindArea"> סוג איזור {{kindArea}} </span> &nbsp;&nbsp;
+  <span *ngIf="transportation"> תחבורה {{transportation}} </span>
+  <span *ngIf="color"> צבע {{color}}</span>
+
+</div>
+<br>
+<app-show-items [statusChange]="clicked" [advertisements]="advertisementsList"></app-show-items>
+<div *ngIf="noResults">{{noResults}}</div>
+
+
+
+
+
+
+<!--getSubCategories(item.catrgoryParentId)  [ngClass]="choose==9?'6':'3'"-->
+ <!-- <p>id from category:{{selectedCategory.categoryKod}}</p> -->
+<!-- <div> 
+     <div class="text_field_row">
+      <input type="month"  [(ngModel)]="month" name="month" /></div>
+    </div> -->

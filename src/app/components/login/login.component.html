@@ -1,0 +1,33 @@
+
+
+
+<body style="margin-right: 20%;width: 50%;background-color: transparent;">
+    <div class="container">
+  <form class="form-horizontal" action="/action_page.php">
+    <div class="form-group" [formGroup]="parentForm">
+        <div class="col-sm-10">
+          
+          <input class="form-control" [formControlName]="'userNameLogin'" type="email"placeholder="הכנס מייל" required  [(ngModel)]="loginDetails.Mail" name="mail">
+        <mat-error  *ngIf="submitted && f.userNameLogin.errors">
+          <strong style="margin-right: 50%"   *ngIf="f.userNameLogin.errors.required">שדה חובה</strong>
+          <strong  *ngIf="f.userNameLogin.errors.email">יש להזין דוא"ל תקין</strong>
+        </mat-error>
+        </div><label class="control-label col-sm-2" >:שם משתמש</label>
+    </div>
+    <div class="form-group" [formGroup]="parentForm">
+        <div class="col-sm-10">
+          
+          <input  class="form-control" [formControlName]="'passwordLogin'" type="password"placeholder="הכנס סיסמא" required [(ngModel)]="loginDetails.Password" name="password">
+          <mat-error  *ngIf="submitted && f.passwordLogin.errors">
+            <strong  *ngIf="f.passwordLogin.errors.required" style="margin-right: 50%">שדה חובה</strong>
+            <strong  *ngIf="f.passwordLogin.errors.minlength">סיסמא חייבת להכיל לפחות 6 תווים</strong>
+          </mat-error>
+        </div><label class="control-label col-sm-2" for="pwd">:סיסמא</label>
+    </div>
+    <ng-content></ng-content>
+  <!-- <button mat-raised-button (click)="tryLogin()">אישור</button> -->
+  </form>
+</div>
+</body>
+
+

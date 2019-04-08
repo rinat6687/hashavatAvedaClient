@@ -1,0 +1,48 @@
+
+.menu
+{    direction: rtl;
+    padding-right: 0%;
+    /* height: 50px; */
+    margin-top: 0;
+}
+form{
+	direction: rtl;
+	height:60%;
+	margin-top: 5%;
+}
+.contact_form {
+		background-color: rgb(248, 248, 248);
+    border-radius: 7px;
+	border:0.5px solid #d8d8d8;
+	margin: 0% auto;
+	/* width:100%;
+	height: 350px; */
+
+}
+.user{
+	width: 20%;
+	margin-left: 50%;
+}
+li{
+	font-size: 15px;
+	color:white;
+}
+li:hover,li:active{
+	font-weight:bold;
+}
+li.upDate{
+	visibility: hidden;
+}
+.mainTitle{
+	background-color: #2b2ece;
+	height:53px;
+	font-size: 15px;
+}
+span{
+	font-size:25px;
+}
+.icon_form{
+	width: 13px;
+	height: 13px;
+	
+}
